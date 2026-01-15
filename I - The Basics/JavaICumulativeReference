@@ -1,0 +1,150 @@
+/*************************************************
+ * JAVA I CUMULATIVE REFERENCE
+ *************************************************/
+
+public class JavaICumulativeReference {
+    public static void main(String[] args) {
+
+        /* ===============================
+         * UNIT 1 — TYPES & OPERATORS
+         * =============================== */
+
+        int a = 7;
+        int b = 2;
+
+        double div1 = a / b;          // integer division first
+        double div2 = (double) a / b; // casting
+
+        System.out.println(div1); // 3.0
+        System.out.println(div2); // 3.5
+
+
+        /* ===============================
+         * UNIT 1 — METHODS (STATIC)
+         * =============================== */
+
+        int sum = add(3, 4);
+        System.out.println(sum); // 7
+
+        printDouble(5); // void method
+
+
+        /* ===============================
+         * UNIT 1–2 — OBJECT CREATION
+         * =============================== */
+
+        Counter counter = new Counter();
+
+        counter.increment();
+        counter.increment();
+
+        System.out.println(counter.getCount()); // 2
+
+
+        /* ===============================
+         * UNIT 2 — SELECTION (if / if-else)
+         * =============================== */
+
+        if (counter.getCount() >= 2) {
+            System.out.println(1);
+        } else {
+            System.out.println(0);
+        }
+
+
+        /* ===============================
+         * UNIT 2 — ITERATION (while)
+         * =============================== */
+
+        int i = 0;
+        while (i < 3) {
+            counter.increment();
+            i++;
+        }
+
+        System.out.println(counter.getCount()); // 5
+
+
+        /* ===============================
+         * UNIT 2 — ITERATION (for)
+         * =============================== */
+
+        for (int j = 0; j < 2; j++) {
+            counter.increment();
+        }
+
+        System.out.println(counter.getCount()); // 7
+
+
+        /* ===============================
+         * UNIT 3 — CLASS USAGE
+         * =============================== */
+
+        Player player = new Player();
+
+        for (int k = 0; k < 5; k++) {
+            if (k < 3) {
+                player.addPoint();
+            }
+        }
+
+        System.out.println(player.getScore()); // 3
+        System.out.println(player.hasWon());   // true
+    }
+
+    /* ===== Static Methods (Unit 1) ===== */
+
+    public static int add(int x, int y) {
+        return x + y;
+    }
+
+    public static void printDouble(int x) {
+        System.out.println(x * 2);
+    }
+}
+
+
+/* =====================================
+ * SUPPORTING CLASSES (UNIT 1–3)
+ * ===================================== */
+
+/* -------- Counter Class -------- */
+class Counter {
+
+    private int count;
+
+    public Counter() {
+        count = 0;
+    }
+
+    public void increment() {
+        count++;
+    }
+
+    public int getCount() {
+        return count;
+    }
+}
+
+
+/* -------- Player Class -------- */
+class Player {
+
+    private int score;
+
+    public Player() {
+        score = 0;
+    }
+
+    public void addPoint() {
+        score++;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public boolean hasWon() {
+        return score >= 3;
+    }
+}
